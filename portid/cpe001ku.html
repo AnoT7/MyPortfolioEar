@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - CPE001KU</title>
+<link rel="stylesheet" href="../main.css">
+<link rel="stylesheet" href="../minimalbar.css">
+</head>
+<body>
+
+<div class="content-container">
+  <h1>รหัส : CPE001KU วิศวกรรมศาสตร์คอมพิวเตอร์</h1>
+  <h2>ม.เกษตรศาสตร์ ( บางเขน )</h2>
+  <p>26/05/2025 Uploaded By Admin2</p>
+
+  <div class="portfolio-detail">
+    <p>ตัวอย่าง Portfolio</p>
+    <p>พอร์ตโฟลิโอเล่มนี้จ้าก... (ตามเนื้อหาเต็ม)</p>
+  </div>
+</div>
+
+<div class="flybar-bottom show">
+  <ul class="flybar-menu">
+    <li><a href="../index.html">หน้าแรก</a></li>
+    <li class="botbarpopup">
+      <a href="#" class="botbarpopup-toggle">หมวดหมู่</a>
+      <ul class="botbarpopup-menu">
+        <li><a href="#cat-med">แพทยศาสตร์</a></li>
+        <li><a href="#cat-eng">วิศวกรรม</a></li>
+        <li><a href="#cat-arch">สถาปัตย์</a></li>
+      </ul>
+    </li>
+    <li><a href="#">เทคนิค</a></li>
+    <li class="botbarpopup">
+      <a href="#" class="botbarpopup-toggle">เกี่ยวกับ</a>
+      <ul class="botbarpopup-menu">
+        <li><a href="#about-team">เกี่ยวกับเว็บไซต์นี้</a></li>
+        <li><a href="#about-vision">เกี่ยวกับผู้สร้าง</a></li>
+      </ul>
+    </li>
+    <li><a href="#">อัปโหลด</a></li>
+  </ul>
+</div>
+
+<script src="../DarkLight/Dark.js"></script>
+<script>
+  document.querySelectorAll('.flybar-menu .botbarpopup').forEach(popup => {
+    const toggle = popup.querySelector('.botbarpopup-toggle');
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      popup.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!popup.contains(e.target)) {
+        popup.classList.remove('open');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

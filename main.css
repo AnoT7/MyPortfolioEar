@@ -1,0 +1,324 @@
+
+/*-----*/
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 12px 0;
+  min-width: 160px;
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+
+/* แสดง dropdown ตอน hover */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* ลิงก์ภายในเมนูย่อย */
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 16px;
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.navbar-menu li.dropdown:nth-child(2) .dropdown-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 8px;
+  row-gap: 4px;
+  padding: 12px 16px;
+  min-width: 240px;
+  max-width: 500px;
+}
+
+.hero-warning-floating {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  background: rgba(255, 200, 100, 0.15);
+  border: 1px solid rgba(255, 200, 100, 0.3);
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #a35b00;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(255, 180, 80, 0.2);
+  animation: warningDropBounce 2.4s ease-out forwards;
+  z-index: 2;
+  opacity: 0;
+}
+
+@keyframes warningDropBounce {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  40% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(10px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(10px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(10px);
+  }
+  70% {
+    transform: translateX(-50%) translateY(-4px);
+  }
+  80% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+  90% {
+    transform: translateX(-50%) translateY(-8px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+ 
+.mode-toggle-wrapper {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;   /* ✅ เรียงแนวตั้ง */
+  align-items: center;
+  gap: 12px;                /* ✅ ระยะห่างระหว่าง 2 ปุ่ม */
+  z-index: 9999;
+}
+.alert-bubble {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 193, 7, 0.15);
+  border: 1px solid rgba(255, 193, 7, 0.25);
+  color: #a35b00;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(255, 193, 7, 0.1);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  cursor: default;
+}
+
+.alert-bubble.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tooltip */
+.alert-tooltip {
+  position: absolute;
+  right: 110%; /* ✅ ดึงออกไปทางซ้าย */
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  color: inherit;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  opacity: 0;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+/* แสดง tooltip เมื่อ hover */
+.alert-bubble:hover .alert-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+/* จอเล็กกว่า 1024px (iPad แนวนอน & แล็ปท็อปจอเล็ก) */
+@media screen and (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* จอเล็กกว่า 768px (มือถือแนวนอน, iPad แนวตั้ง) */
+@media screen and (max-width: 768px) {
+  .navbar-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .portfolio-card {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .portfolio-title-button {
+    font-size: 1rem;
+    padding: 10px 16px;
+  }
+
+  .alert-tooltip {
+    display: none; /* ปิด tooltip บนมือถือเพื่อไม่บัง */
+  }
+}
+
+/* จอเล็กกว่า 480px (มือถือแนวตั้งเต็มจอ) */
+@media screen and (max-width: 480px) {
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .portfolio-title-button {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+
+  .category-link {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  .portfolio-thumb {
+    height: 140px;
+  }
+}
+.flybar-bottom {
+  position: fixed;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 12px 28px;
+  transition: bottom 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.flybar-bottom.show {
+  bottom: 24px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.flybar-menu {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.flybar-menu li {
+  position: relative;
+}
+
+.flybar-menu a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.flybar-menu a:hover {
+  color: #0077ff;
+}
+
+.flybar-menu li.botbarpopup {
+  position: relative;
+}
+
+.flybar-menu .botbarpopup-menu {
+  position: absolute;
+  bottom: 100%;   /* ✅ ลอยขึ้นด้านบนของปุ่มแทน */
+  left: 0;
+  transform: translateY(-10px) scale(0.95);  /* ✅ ขยับ popup ขึ้นเล็กน้อย */
+  opacity: 0;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(20px);
+  padding: 15px 50px;
+  min-width: 250px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.flybar-menu .botbarpopup.open .botbarpopup-menu {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
