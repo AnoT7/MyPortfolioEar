@@ -1,64 +1,299 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio - CPE001KU</title>
-<link rel="stylesheet" href="../main.css">
-<link rel="stylesheet" href="../minimalbar.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - CPE001KU</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="minimalbar.css">
+  <link rel="stylesheet" href="font.css">
+  <style>
+    body {
+      font-family: "Prompt", sans-serif;
+      background: linear-gradient(135deg, #f0faff, #ffffff);
+      margin: 0;
+      padding: 0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .portfolio-container {
+      max-width: 960px;
+      width: 90%;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 40px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .portfolio-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .portfolio-header h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      background: linear-gradient(90deg, #007bff, #00bfff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .portfolio-header h2 {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      margin: 0;
+    }
+
+    .portfolio-header p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 6px;
+    }
+
+    .portfolio-description {
+      text-align: center;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: zoom-in;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      backdrop-filter: blur(8px);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media screen and (max-width: 600px) {
+      .gallery img {
+        height: 160px;
+      }
+      .portfolio-container {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="content-container">
-  <h1>รหัส : CPE001KU วิศวกรรมศาสตร์คอมพิวเตอร์</h1>
-  <h2>ม.เกษตรศาสตร์ ( บางเขน )</h2>
-  <p>26/05/2025 Uploaded By Admin2</p>
+  <div class="portfolio-container">
+    <div class="portfolio-header">
+      <h1>รหัส : IT001KU เทคโนโลยีสารสนเทศ</h1>
+      <h2>มหาวิทยาลัยเกษตรศาสตร์ (กำแพงแสน)</h2>
+      <p>อัปโหลดเมื่อ 26/05/2025 โดย Admin2</p>
+    </div>
 
-  <div class="portfolio-detail">
-    <p>ตัวอย่าง Portfolio</p>
-    <p>พอร์ตโฟลิโอเล่มนี้จ้าก... (ตามเนื้อหาเต็ม)</p>
+    <div class="portfolio-description">
+      <p>
+        พอร์ตโฟลิโอนี้จัดทำขึ้นเพื่อแสดงผลงานและกิจกรรมที่เกี่ยวข้องกับสายเทคโนโลยีสารสนเทศ 
+        โดยเน้นการออกแบบ การเขียนโปรแกรม และการพัฒนานวัตกรรมทางเทคโนโลยี 
+        ที่สะท้อนความสามารถและความสนใจของผู้จัดทำอย่างแท้จริง
+      </p>
+    </div>
+
+    <div class="gallery">
+      <img src="1.png" alt="Portfolio Image 1">
+      <img src="2.png" alt="Portfolio Image 2">
+      <img src="3.png" alt="Portfolio Image 3">
+      <img src="4.png" alt="Portfolio Image 4">
+      <img src="5.png" alt="Portfolio Image 5">
+      <img src="6.png" alt="Portfolio Image 6">
+      <img src="7.png" alt="Portfolio Image 7">
+      <img src="8.png" alt="Portfolio Image 8">
+      <img src="9.png" alt="Portfolio Image 9">
+      <img src="10.png" alt="Portfolio Image 10">
+    </div>
   </div>
-</div>
 
-<div class="flybar-bottom show">
-  <ul class="flybar-menu">
-    <li><a href="../index.html">หน้าแรก</a></li>
-    <li class="botbarpopup">
-      <a href="#" class="botbarpopup-toggle">หมวดหมู่</a>
-      <ul class="botbarpopup-menu">
-        <li><a href="#cat-med">แพทยศาสตร์</a></li>
-        <li><a href="#cat-eng">วิศวกรรม</a></li>
-        <li><a href="#cat-arch">สถาปัตย์</a></li>
-      </ul>
-    </li>
-    <li><a href="#">เทคนิค</a></li>
-    <li class="botbarpopup">
-      <a href="#" class="botbarpopup-toggle">เกี่ยวกับ</a>
-      <ul class="botbarpopup-menu">
-        <li><a href="#about-team">เกี่ยวกับเว็บไซต์นี้</a></li>
-        <li><a href="#about-vision">เกี่ยวกับผู้สร้าง</a></li>
-      </ul>
-    </li>
-    <li><a href="#">อัปโหลด</a></li>
-  </ul>
-</div>
+  <!-- ✅ Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="zoomed image">
+  </div>
 
-<script src="../DarkLight/Dark.js"></script>
-<script>
-  document.querySelectorAll('.flybar-menu .botbarpopup').forEach(popup => {
-    const toggle = popup.querySelector('.botbarpopup-toggle');
-    toggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      popup.classList.toggle('open');
-    });
-    document.addEventListener('click', (e) => {
-      if (!popup.contains(e.target)) {
-        popup.classList.remove('open');
-      }
-    });
+  <!-- ✅ Botbar -->
+  <div class="flybar-bottom show">
+    <ul class="flybar-menu">
+      <li><a href="../index.html">หน้าแรก</a></li>
+      <li class="botbarpopup">
+        <a href="#" class="botbarpopup-toggle">หมวดหมู่</a>
+        <ul class="botbarpopup-menu">
+          <li><a href="#cat-med">แพทยศาสตร์</a></li>
+          <li><a href="#cat-eng">วิศวกรรม</a></li>
+          <li><a href="#cat-arch">สถาปัตย์</a></li>
+        </ul>
+      </li>
+      <li><a href="#">เทคนิค</a></li>
+      <li><a href="#">เกี่ยวกับ</a></li>
+      <li><a href="#">อัปโหลด</a></li>
+    </ul>
+  </div>
+
+  <script>
+const galleryImages = document.querySelectorAll('.gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+
+// เพิ่มปุ่มลูกศรซ้าย-ขวา
+const btnLeft = document.createElement('div');
+btnLeft.className = 'nav-btn left';
+btnLeft.innerHTML = '❮';
+const btnRight = document.createElement('div');
+btnRight.className = 'nav-btn right';
+btnRight.innerHTML = '❯';
+lightbox.appendChild(btnLeft);
+lightbox.appendChild(btnRight);
+
+let currentIndex = 0;
+let isZoomed = false;
+let isDragging = false;
+let startX, startY;
+let translateX = 0, translateY = 0;
+
+// เปิด Lightbox
+galleryImages.forEach((img, index) => {
+  img.addEventListener('click', () => {
+    currentIndex = index;
+    lightbox.style.display = 'flex';
+    showImage();
   });
+});
+
+// แสดงภาพใน lightbox
+function showImage() {
+  lightboxImg.src = galleryImages[currentIndex].src;
+  resetZoom();
+}
+
+// รีเซ็ตสถานะซูม
+function resetZoom() {
+  isZoomed = false;
+  translateX = 0;
+  translateY = 0;
+  lightboxImg.style.transform = `translate(0px, 0px) scale(1)`;
+  lightboxImg.style.cursor = 'zoom-in';
+}
+
+// คลิกภาพ → ซูมเข้า/ออก
+lightboxImg.addEventListener('click', (e) => {
+  e.stopPropagation();
+  isZoomed = !isZoomed;
+  if (isZoomed) {
+    lightboxImg.style.transform = `translate(0px, 0px) scale(2)`;
+    lightboxImg.style.cursor = 'grab';
+  } else {
+    resetZoom();
+  }
+});
+
+// 📍 ลากดูตอนซูม
+lightboxImg.addEventListener('mousedown', (e) => {
+  if (!isZoomed) return;
+  isDragging = true;
+  startX = e.clientX - translateX;
+  startY = e.clientY - translateY;
+  lightboxImg.style.cursor = 'grabbing';
+});
+
+window.addEventListener('mousemove', (e) => {
+  if (!isZoomed || !isDragging) return;
+  translateX = e.clientX - startX;
+  translateY = e.clientY - startY;
+  lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(2)`;
+});
+
+window.addEventListener('mouseup', () => {
+  isDragging = false;
+  if (isZoomed) lightboxImg.style.cursor = 'grab';
+});
+
+// 🔁 เปลี่ยนรูป (ซ้าย/ขวา)
+btnLeft.addEventListener('click', (e) => {
+  e.stopPropagation();
+  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+  showImage();
+});
+btnRight.addEventListener('click', (e) => {
+  e.stopPropagation();
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  showImage();
+});
+
+// ⌨️ ปุ่มคีย์บอร์ด
+document.addEventListener('keydown', (e) => {
+  if (lightbox.style.display === 'flex') {
+    if (e.key === 'ArrowLeft') btnLeft.click();
+    if (e.key === 'ArrowRight') btnRight.click();
+    if (e.key === 'Escape') lightbox.click();
+  }
+});
+
+// ปิด lightbox เมื่อคลิกพื้นหลัง
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = 'none';
+    resetZoom();
+  }
+});
+
+// Popup เมนูเดิม
+document.querySelectorAll('.flybar-menu .botbarpopup').forEach(popup => {
+  const toggle = popup.querySelector('.botbarpopup-toggle');
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    popup.classList.toggle('open');
+  });
+  document.addEventListener('click', (e) => {
+    if (!popup.contains(e.target)) popup.classList.remove('open');
+  });
+});
 </script>
+
 
 </body>
 </html>
